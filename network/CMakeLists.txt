@@ -10,18 +10,21 @@ cmake_minimum_required(VERSION 3.4.1)
 # and CMake builds them for you. When you build your app, Gradle
 # automatically packages shared libraries with your APK.
 
+MESSAGE(STATUS "This is BINARY dir " ${HELLO_BINARY_DIR})
+
 add_library( # Specifies the name of the library.
-             test-lib
+             socket-lib
 
              # Sets the library as a shared library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/jni/test-lib.c src/main/jni/include/ttt-lib.c )
+             src/main/jni/socket-lib.c src/main/jni/socket/SimpleClient.c src/main/jni/socket/SimpleServer.c)
 
   # Specifies a path to native header files.
-  include_directories(src/main/jni/include/)
+  include_directories(src/main/jni/socket/)
 
+  #ADD_SUBDIRECTORY(src/main/jni)
 
   find_library( # Defines the name of the path variable that stores the
                 # location of the NDK library.
@@ -33,10 +36,11 @@ add_library( # Specifies the name of the library.
 
  # Links your native library against one or more other native libraries.
  target_link_libraries( # Specifies the target library.
-                        test-lib
+                        socket-lib
 
                         # Links the log library to the target library.
                         ${log-lib} )
+
 
 #add_library( app-glue
 #             STATIC

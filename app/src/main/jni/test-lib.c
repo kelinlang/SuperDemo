@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "com_kelinlang_superdemo_MainActivity.h"
+#include "ttt-lib.h"
 
 #define  LOG_TAG    "kelinlang"
 #define LOGV(...) __android_log_print(ANDROID_LOG_VERBOSE, LOG_TAG, __VA_ARGS__)
@@ -120,25 +121,7 @@ JNIEXPORT jstring JNICALL Java_com_kelinlang_superdemo_MainActivity_get
 
 JNIEXPORT jstring JNICALL  Java_com_kelinlang_superdemo_MainActivity_getLine(JNIEnv *env, jobject obj, jstring prompt)
 {
-    char buf[128];
-    const jbyte *str;
-    str = (*env)->GetStringUTFChars(env, prompt, NULL);
-    if (str == NULL) { //不要忘记检测，否则分配内存失败会抛出异常
-        return NULL; /* OutOfMemoryError already thrown */
-    }
-    printf("%s", str);
-
-    const   char* get;
-   get = (*env)->GetStringChars(env,prompt,NULL);
 
 
-
-    char* p = "ddd";
-    LOGD("传了%s",p);
-//    LOGD("传了%s",str);
-    (*env)->ReleaseStringUTFChars(env, prompt, str);
-
-    /* We assume here that the user does not type more than  * 127 characters */
-    scanf("%s", buf);
-    return (*env)->NewStringUTF(env, buf);
+    return (*env)->NewStringUTF(env, "hell");
 }
