@@ -19,10 +19,18 @@ add_library( # Specifies the name of the library.
              SHARED
 
              # Provides a relative path to your source file(s).
-             src/main/jni/socket-lib.c src/main/jni/socket/SimpleClient.c src/main/jni/socket/SimpleServer.c)
+             src/main/jni/socket-lib.c
+             src/main/jni/socket/SimpleClient.c
+             src/main/jni/socket/SimpleServer.c
+             src/main/jni/utils/string-uitls.c
+             src/main/jni/utils/time-utils.c)
 
   # Specifies a path to native header files.
   include_directories(src/main/jni/socket/)
+  include_directories(src/main/jni/log/)
+  include_directories(src/main/jni/utils/)
+
+
 
   #ADD_SUBDIRECTORY(src/main/jni)
 

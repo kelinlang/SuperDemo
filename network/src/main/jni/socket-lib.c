@@ -51,7 +51,11 @@ JNIEXPORT void JNICALL Java_com_kelinlang_network_socket_SocketDemo_stopServer
  */
 JNIEXPORT void JNICALL Java_com_kelinlang_network_socket_SocketDemo_startClient
         (JNIEnv *env, jobject jobject1){
-
+    pthread_t pt;
+    pthread_attr_t attr;
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+    pthread_create(&pt, &attr, &startClient, NULL);
 }
 
 /*
@@ -61,5 +65,5 @@ JNIEXPORT void JNICALL Java_com_kelinlang_network_socket_SocketDemo_startClient
  */
 JNIEXPORT void JNICALL Java_com_kelinlang_network_socket_SocketDemo_stopClient
         (JNIEnv *env, jobject jobject1){
-
+    stopClient(NULL);
 }

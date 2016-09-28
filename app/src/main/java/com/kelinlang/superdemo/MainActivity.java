@@ -1,12 +1,13 @@
 package com.kelinlang.superdemo;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.kelinlang.network.socket.SocketDemo;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     private SocketDemo mSocketDemo;
 
@@ -16,14 +17,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mSocketDemo =  new SocketDemo();
 //        mSocketDemo.startServer();
-        get("");
 
     }
 
 
 
     public void onStartServer(View view){
-        get("");
 
         mSocketDemo.startServer();
     }
