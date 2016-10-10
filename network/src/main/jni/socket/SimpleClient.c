@@ -31,19 +31,22 @@ void *startClient(void *arg) {
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
         LOGD("创建客户端套接字失败");
     }
+    LOGD("socket create success");
 
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
-    servaddr.sin_port = htons(8000);
-    if (inet_pton(AF_INET, "127.0.0.1", &servaddr.sin_addr) <= 0) {
-        printf("inet_pton error for %s\n", "127.0.0.1");
+    servaddr.sin_port = htons(9998);
+    if (inet_pton(AF_INET, "119.29.132.60", &servaddr.sin_addr) <= 0) {
+        LOGD("inet_pton error for %s\n", "127.0.0.1");
         return NULL;
     }
 
     if (connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr)) < 0) {
-        printf("connect error: %s(errno: %d)\n", strerror(errno), errno);
+        LOGD("connect error: %s(errno: %d)\n", strerror(errno), errno);
         return NULL;
     }
+    LOGD("socket connect success");
+
     runFlag = 1;
     while (runFlag) {
         if (send(sockfd, "I connect server", 17, 0) < 0) {
@@ -52,6 +55,8 @@ void *startClient(void *arg) {
             close(sockfd);
             return NULL;
         }
+        LOGD("socket send success");
+
         if((rec_len = recv(sockfd, buf, MAXLINE,0)) == -1) {
             LOGD("接收失败");
             runFlag = 0;
