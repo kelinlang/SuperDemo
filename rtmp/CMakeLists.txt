@@ -12,24 +12,38 @@ cmake_minimum_required(VERSION 3.4.1)
 
 MESSAGE(STATUS "This is BINARY dir " ${HELLO_BINARY_DIR})
 
-add_library( # Specifies the name of the library.
-             socket-lib
 
-             # Sets the library as a shared library.
-             SHARED
+  add_library( # Specifies the name of the library.
+               rtmp-lib
 
-             # Provides a relative path to your source file(s).
-             src/main/jni/socket-lib.c
-             src/main/jni/socket/SimpleClient.c
-             src/main/jni/socket/SimpleServer.c
-             src/main/jni/utils/string-uitls.c
-             src/main/jni/utils/time-utils.c
-             )
+               # Sets the library as a shared library.
+               SHARED
+
+               # Provides a relative path to your source file(s).
+               src/main/jni/rtmp-lib.c
+
+               src/main/jni/utils/string-uitls.c
+               src/main/jni/utils/time-utils.c
+
+               src/main/jni/RtmpDump/rtmpdump.c
+               src/main/jni/RtmpDump/rtmpgw.c
+               src/main/jni/RtmpDump/rtmpsrv.c
+               src/main/jni/RtmpDump/rtmpsuck.c
+               src/main/jni/RtmpDump/thread.c
+
+               src/main/jni/RtmpDump/librtmp/amf.c
+               src/main/jni/RtmpDump/librtmp/hashswf.c
+               src/main/jni/RtmpDump/librtmp/log.c
+               src/main/jni/RtmpDump/librtmp/parseurl.c
+               src/main/jni/RtmpDump/librtmp/rtmp.c
+               )
 
   # Specifies a path to native header files.
   include_directories(src/main/jni/socket/)
   include_directories(src/main/jni/log/)
   include_directories(src/main/jni/utils/)
+  include_directories(src/main/jni/RtmpDump/)
+  include_directories(src/main/jni/RtmpDump/librtmp/)
 
 
 
@@ -46,7 +60,7 @@ add_library( # Specifies the name of the library.
 
  # Links your native library against one or more other native libraries.
  target_link_libraries( # Specifies the target library.
-                        socket-lib
+                        rtmp-lib
 
                         # Links the log library to the target library.
                         ${log-lib} )

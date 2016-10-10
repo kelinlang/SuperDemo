@@ -1,1 +1,1 @@
-include ':app', ':commonlib', ':network'
+include ':app', ':commonlib', ':network', ':rtmp'
