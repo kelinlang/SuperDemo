@@ -1,1 +1,1 @@
-include ':app', ':commonlib', ':network', ':rtmp', ':mjpeg', ':rtmpdump-android'
+include ':app', ':commonlib', ':network', ':rtmp', ':mjpeg', ':rtmpdump-android', ':viewapp'

@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/network/network.iml" filepath="$PROJECT_DIR$/network/network.iml" />
       <module fileurl="file://$PROJECT_DIR$/rtmp/rtmp.iml" filepath="$PROJECT_DIR$/rtmp/rtmp.iml" />
       <module fileurl="file://$PROJECT_DIR$/rtmpdump-android/rtmpdump-android.iml" filepath="$PROJECT_DIR$/rtmpdump-android/rtmpdump-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewapp/viewapp.iml" filepath="$PROJECT_DIR$/viewapp/viewapp.iml" />
     </modules>
   </component>
 </project>
