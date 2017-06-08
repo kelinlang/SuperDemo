@@ -95,13 +95,17 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
             mWidth = Math.min(getMeasuredWidth(), getMeasuredHeight());
             mRadius = mWidth / 2;
             setMeasuredDimension(mWidth, mWidth);
+        }else {
+            mWidth = getMeasuredWidth();
+            setMeasuredDimension(heightMeasureSpec/2, heightMeasureSpec/2);
         }
 
+        getParent();
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
+        super.onLayout(changed, left+getMeasuredHeight(), top, right, bottom);
     }
 
     /**
@@ -150,6 +154,8 @@ public class RoundImageView extends android.support.v7.widget.AppCompatImageView
             return;
         }
         setUpShader();
+        getMeasuredWidth();
+        getMeasuredHeight();
 
         if (type == TYPE_ROUND) {
             canvas.drawRoundRect(mRoundRect, mBorderRadius, mBorderRadius,
