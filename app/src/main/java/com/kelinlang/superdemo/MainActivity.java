@@ -49,14 +49,7 @@ public class MainActivity extends Activity {
 
 
 
-    static {
-        System.loadLibrary("test-lib");
-    }
-
-    public native String stringFromJNI();
 
 
-    public native String get(String d);
 
-    public native String getLine(String d);
 }

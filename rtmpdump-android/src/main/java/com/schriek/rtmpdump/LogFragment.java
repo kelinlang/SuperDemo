@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.kelinlang.rtmp.R;
+
 public class LogFragment extends Fragment {
 
 	private ListView list;
