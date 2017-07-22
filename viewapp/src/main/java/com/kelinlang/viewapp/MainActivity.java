@@ -14,7 +14,16 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.kelinlang.commonlib.log.DLog;
+import com.kelinlang.commonlib.utils.json.DataJsonTranslation;
+import com.kelinlang.test.FlowParamSync;
+import com.kelinlang.test.PackageFlowReportInfo;
+import com.kelinlang.test.PackagesFlowReportInfo;
 import com.kelinlang.viewapp.view.RoundImageView;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,6 +60,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick2(View  view){
+        FlowParamSync flowParamSync = new FlowParamSync();
+        flowParamSync.setUserTrafficCls(new JsonArray());
+        flowParamSync.getUserTrafficCls().add("com.dudu.wifi");
+        flowParamSync.getUserTrafficCls().add("com.dudu.flow");
 
+        DLog.d(DataJsonTranslation.objectToJson(DataJsonTranslation.objectToJson(flowParamSync)));
+
+        PackagesFlowReportInfo packagesFlowReportInfo = new PackagesFlowReportInfo();
+        packagesFlowReportInfo.setReports(new JsonArray());
+
+        PackageFlowReportInfo packageFlowReportInfo = new PackageFlowReportInfo();
+        packageFlowReportInfo.setPackageName("com.dudu.wifi");
+        packageFlowReportInfo.setUsedFlow("200");
+
+        Gson gson = new Gson();
+        gson.toJson(packageFlowReportInfo);
+
+        DLog.d(DataJsonTranslation.objectToJson(DataJsonTranslation.objectToJson(packageFlowReportInfo)));
+
+        DLog.log.debug(DataJsonTranslation.objectToJson(DataJsonTranslation.objectToJson(packageFlowReportInfo)));
+
+        packagesFlowReportInfo.getReports().add(DataJsonTranslation.objectToJson(packageFlowReportInfo));
+
+        packageFlowReportInfo.setPackageName("com.dudu.flow");
+        packageFlowReportInfo.setUsedFlow("300");
+        packagesFlowReportInfo.getReports().add(DataJsonTranslation.objectToJson(packageFlowReportInfo));
+
+
+        DLog.d(DataJsonTranslation.objectToJson(DataJsonTranslation.objectToJson(packagesFlowReportInfo)));
+        DLog.log.debug(DataJsonTranslation.objectToJson(DataJsonTranslation.objectToJson(packagesFlowReportInfo)));
+    }
+
+
+
+    private void testException(){
+
+    }
+
+    private void exception(){
+        throw new IOException("dd");
     }
 }
