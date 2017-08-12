@@ -40,4 +40,12 @@
             android:text="测试动画"/>
 
     </FrameLayout>
+
+    <com.kelinlang.viewapp.view.NinePhotoView
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ninephoto_hspace="10dp"
+        app:ninephoto_vspace="10dp">
+    </com.kelinlang.viewapp.view.NinePhotoView>
 </LinearLayout>

@@ -15,6 +15,9 @@ import android.widget.TextView;
 
 import com.kelinlang.rtmp.R;
 
+import java.nio.ByteBuffer;
+import java.nio.IntBuffer;
+
 public class MainActivity extends FragmentActivity {
 
 	/**
@@ -46,7 +49,10 @@ public class MainActivity extends FragmentActivity {
 		mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 
-	
+		ByteBuffer byteBuffer = ByteBuffer.allocate(10);
+		byte[] bytes = new byte[1];
+		byteBuffer.get(bytes);
+
 		
 
 		// dump.parseString("rtmpdump -r rtmp://owned.fc.llnwd.net:1935/own3duslive-live -a owned -f WIN 11,1,102,62 -W http://static.ec.own3d.tv/player/Own3dPlayerV3_07.swf -p http://www.own3d.tv/live/10588 --live -y 2dd-dota_10588 -o "

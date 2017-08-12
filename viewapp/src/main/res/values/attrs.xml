@@ -44,4 +44,10 @@
         <attr name="circleColor" format="color" />
         <attr name="ringColor" format="color" />
     </declare-styleable>
+
+
+    <declare-styleable name="NinePhotoView">
+        <attr name="ninephoto_hspace" format="dimension"/>
+        <attr name="ninephoto_vspace" format="dimension"/>
+    </declare-styleable>
 </resources>

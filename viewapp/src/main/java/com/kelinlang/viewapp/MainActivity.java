@@ -99,6 +99,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void exception(){
-        throw new IOException("dd");
+
     }
 }
